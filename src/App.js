@@ -7,6 +7,7 @@ import './App.css';
 // User Imports
 import Navbar from './Navbar';
 import Home from './Home';
+import Checkout from './Checkout';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path='/checkout' element={
           <div>
             <Navbar />
-            <h1>Checkout</h1>
+            <Checkout />
           </div>
         } />
       </Routes>

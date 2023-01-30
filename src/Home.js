@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 // CSS imports
-import './Home.css'
+import './Home.css';
 
 // User imports 
 import prime_logo from './utils/prime_logo_copy.jpeg';
@@ -67,7 +67,7 @@ function Home() {
                 />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

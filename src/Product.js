@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 // CSS imports
 import './Product.css';
+
+//User imports
 import { useStateValue } from './StateProvider';
 
 function Product({ id, title, price, rating, image }) {
@@ -41,7 +43,7 @@ function Product({ id, title, price, rating, image }) {
             </div>
             <button onClick={addToBasket}>Add to Basket</button>
         </div>
-    )
-}
+    );
+};
 
-export default Product
+export default Product;
