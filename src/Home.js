@@ -38,7 +38,7 @@ function Home() {
                 <Product
                     id={4}
                     title="G-Shock Limited Edition Watch"
-                    price={299}
+                    price={19799}
                     rating={4}
                     image="https://m.media-amazon.com/images/I/81qdD9+GQ4L._AC_UL640_QL65_.jpg"
                 />

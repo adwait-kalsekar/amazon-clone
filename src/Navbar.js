@@ -8,8 +8,11 @@ import './Navbar.css';
 
 // User imports 
 import navbar_logo from './utils/amazon_logo.png';
+import { useStateValue } from './StateProvider';
 
 function Navbar() {
+    const [{ basket }] = useStateValue();
+
     return (
         <nav className='navbar'>
             <Link to='/'>
@@ -43,7 +46,7 @@ function Navbar() {
                 <Link to='/checkout' className='navbar__link'>
                     <div className='navbar__optionBasket'>
                         <ShoppingCartIcon />
-                        <span className='navbar__option_line2 navbar__basketCount' >0</span>
+                        <span className='navbar__option_line2 navbar__basketCount' >{basket?.length}</span>
                     </div>
                 </Link>
             </div>
