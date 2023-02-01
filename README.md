@@ -9,8 +9,8 @@ It also demonstrates use of React Router to navigate between pages.
 The entire application uses Firebase as a backend service for authentication.
 The application is hosted using Firebase.
 
-##The application is Hosted on:
-###https://clone-4ad27.web.app/
+## The application is Hosted on:
+### https://clone-4ad27.web.app/
 
 ## Run this project locally
 
