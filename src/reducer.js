@@ -10,6 +10,13 @@ export function getBasketTotal(basket) {
 function reducer(state, action) {
     console.log(action);
     switch (action.type) {
+        case 'SET_USER':
+            //Logic to manage User authentication state
+            return {
+                ...state,
+                user: action.user,
+            }
+
         case 'ADD_TO_BASKET':
             //Logic to add product to basket
             return {
@@ -31,6 +38,11 @@ function reducer(state, action) {
                 ...state,
                 basket: newBasket,
             };
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: [],
+            }
         default:
             return state;
     }

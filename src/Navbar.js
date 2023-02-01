@@ -9,9 +9,16 @@ import './Navbar.css';
 // User imports 
 import navbar_logo from './utils/amazon_logo.png';
 import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
 
 function Navbar() {
-    const [{ basket }] = useStateValue();
+    const [{ basket, user }] = useStateValue();
+
+    function logout() {
+        setTimeout(() => {
+            auth.signOut();
+        }, 500);
+    };
 
     return (
         <nav className='navbar'>
@@ -25,12 +32,24 @@ function Navbar() {
             </div>
 
             <div className='navbar__nav'>
-                <Link to='/login' className='navbar__link'>
-                    <div className='navbar__option'>
-                        <span className='navbar__option_line1'>Hello,</span>
-                        <span className='navbar__option_line2'>Sign In</span>
-                    </div>
-                </Link>
+                {user === null ?
+                    (
+                        <Link to='/login' className='navbar__link'>
+                            <div className='navbar__option'>
+                                <span className='navbar__option_line1'>Hello,</span>
+                                <span className='navbar__option_line2'>Sign In</span>
+                            </div>
+                        </Link>
+                    ) :
+                    (
+                        <Link onClick={logout} className='navbar__link'>
+                            <div className='navbar__option'>
+                                <span className='navbar__option_line1'>Hello, {user.email.substring(0, user.email.indexOf("@"))}</span>
+                                <span className='navbar__option_line2'>Logout</span>
+                            </div>
+                        </Link>
+                    )
+                }
                 <Link to='/' className='navbar__link'>
                     <div className='navbar__option'>
                         <span className='navbar__option_line1'>Returns</span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import CurrencyFormat from 'react-currency-format';
 
 //CSS imports 
@@ -9,7 +10,20 @@ import { useStateValue } from './StateProvider';
 import { getBasketTotal } from './reducer';
 
 function Subtotal() {
-    const [{ basket }] = useStateValue();
+    const navigate = useNavigate();
+    const [{ basket, user }, dispatch] = useStateValue();
+
+    function proceedToCheckout() {
+        if (user === null) {
+            return navigate('/login');
+        }
+        alert('Order Placed Successfully!');
+        dispatch({
+            type: 'EMPTY_BASKET'
+        });
+        navigate('/');
+    };
+
     return (
         <div className='subtotal'>
             <CurrencyFormat
@@ -29,7 +43,7 @@ function Subtotal() {
                 thousandSeparator={true}
                 prefix={"Rs."}
             />
-            <button>Proceed to Checkout</button>
+            <button onClick={proceedToCheckout}>Proceed to Checkout</button>
         </div>
     );
 };
